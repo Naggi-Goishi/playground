@@ -1,0 +1,20 @@
+<div>
+  <%= form_for @post do |f| %>
+    <div>
+      <%= f.label 'author '%>
+      <%= f.text_area(:author) %>
+    </div>
+    <div>
+      <%= f.label 'content '%>
+      <%= f.text_area(:content) %>
+    </div>
+    <div>
+      <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+        <%= b.label { b.check_box + b.text } %>
+      <% end %>
+    </div>
+      <%= f.submit '送信' %>
+  <% end %>
+</div>
+
+<%= render partial: 'hello'  %>
